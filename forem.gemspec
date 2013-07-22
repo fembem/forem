@@ -17,10 +17,11 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.1.3"
-  # s.add_dependency "jquery-rails"
+  #s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
 
   s.add_development_dependency "rspec-rails", "~> 2.5"
   s.add_development_dependency "capybara"
+  s.add_development_dependency "launchy"
 end
