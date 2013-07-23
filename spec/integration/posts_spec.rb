@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe "posts" do
   before do
+    #Forem:Post.destroy_all
+    #Forem:Topic.destroy_all
     @user = User.create!(:login => "some_guy")
     @topic = Forem::Topic.new(:subject => "First topic!", :user => @user)
     @topic.posts.build(:text => "First post!")
     @topic.save!
+    puts 'topic: ' + @topic.id.to_s
+    puts @topic.posts.inspect
   end
   context "unauthenticated users" do
     before do
@@ -20,7 +24,7 @@ describe "posts" do
       within "#topics tbody td#posts_count" do
         page.should have_content("1")
       end
-      within "#topics tbody td#last_post" do
+      within "#topics tbody tr:last td#last_post" do
         page.should have_content("last post was less than a minute ago by some_guy")
       end
     end

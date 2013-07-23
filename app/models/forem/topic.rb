@@ -10,7 +10,7 @@ module Forem
     before_save :set_post_user
 
     def last_post
-      Post.order("created_at").last
+      posts.last
     end
 
     private

@@ -18,7 +18,8 @@
           <tr>
             <td id='topic_subject'><%= link_to topic.subject, topic %></td>
             <td id='posts_count'><%= topic.posts_count %></td>
-            <td id='last_post'>last post was <%= time_ago_in_words(topic.last_post.created_at) %> ago by <%= topic.last_post.user %></td>
+            <% last_post = topic.last_post %>
+            <td id='last_post'>last post was <%= time_ago_in_words(last_post.created_at) %> ago by <%= last_post.user %></td>
           </tr>
       <% end %>
       </tbody>
